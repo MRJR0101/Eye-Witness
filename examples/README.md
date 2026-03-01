@@ -31,7 +31,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness
+cd <project-root>
 python -m examples.cli_demo
 python -m examples.integrations_demo
 ```

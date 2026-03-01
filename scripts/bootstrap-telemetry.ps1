@@ -10,7 +10,7 @@
       4. Sync with the telemetry extra
 
 .USAGE
-    cd C:\ThisIsAISandbox\Eye-Witness\observability
+    cd <project-root>\observability
     .\scripts\bootstrap-telemetry.ps1
 #>
 

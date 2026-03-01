@@ -31,7 +31,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness
+cd <project-root>
 set EW_RUN_CONTRACT=1
 python -m pytest tests\contract\test_api_contract.py tests\test_contract_wheel.py -v
 ```

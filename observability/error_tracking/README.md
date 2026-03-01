@@ -31,7 +31,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness
+cd <project-root>
 python -m observability.error_tracking.demo
 ```
 

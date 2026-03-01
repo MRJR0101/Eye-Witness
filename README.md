@@ -344,7 +344,7 @@ without modification:
 
 ```bash
 # Install as editable dependency in another project
-uv pip install -e "C:\Dev\PROJECTS\Eye-Witness[all]"
+uv pip install -e "<project-root>[all]"
 ```
 
 ```python

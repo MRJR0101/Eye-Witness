@@ -43,14 +43,14 @@ observability/
 ## Quick Start (pip)
 
 ```powershell
-cd C:\ThisIsAISandbox\Eye-Witness\observability
+cd <project-root>\observability
 pip install -r requirements.txt
 ```
 
 ## Quick Start (uv + pyproject.toml)
 
 ```powershell
-cd C:\ThisIsAISandbox\Eye-Witness\observability
+cd <project-root>\observability
 uv sync --extra all
 ```
 

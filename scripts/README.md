@@ -31,7 +31,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness
+cd <project-root>
 python .\scripts\benchmark_logging.py
 python .\scripts\release_check.py
 ```
@@ -104,7 +104,7 @@ events_per_sec=8158.30
 ## Troubleshooting / FAQ
 
 Problem: script cannot find project files  
-Fix: run from repository root (`C:\Dev\PROJECTS\Eye-Witness`).
+Fix: run from repository root (`<project-root>`).
 
 Problem: benchmark numbers vary widely  
 Fix: run on quiet machine and average multiple runs.

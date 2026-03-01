@@ -31,7 +31,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness\functions
+cd <project-root>\functions
 python .\structlog_demo.py
 ```
 

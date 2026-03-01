@@ -30,7 +30,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness
+cd <project-root>
 python -m pytest tests\integration -v
 ```
 

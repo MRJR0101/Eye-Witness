@@ -31,7 +31,7 @@
 ## Quick Start
 
 ```powershell
-cd C:\Dev\PROJECTS\Eye-Witness
+cd <project-root>
 powershell -File .\scripts\run_docker_matrix.ps1
 ```
 
