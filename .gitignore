@@ -17,3 +17,5 @@ outputs/
 *.db
 *.log
 *.bak
+*.backup
+restore_report.json
