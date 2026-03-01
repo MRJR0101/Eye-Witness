@@ -1,0 +1,9 @@
+# Path 1 — Structlog Dependencies
+# Core
+structlog>=24.1.0
+
+# High-performance JSON serialization (for configure_high_performance)
+orjson>=3.9.0
+
+# Pretty console output in dev mode (optional, used by ConsoleRenderer)
+rich>=13.0.0

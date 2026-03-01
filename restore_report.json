@@ -1,0 +1,14 @@
+{
+  "project_name": "Eye-Witness",
+  "project_path": "C:\\ThisIsAISandbox\\Eye-Witness",
+  "success": true,
+  "venv_created": true,
+  "packages_installed": true,
+  "smoke_test_passed": false,
+  "certified": false,
+  "error_message": "",
+  "duration_seconds": 0.94,
+  "restore_time": "2026-02-13T22:40:13.023146",
+  "python_version": "3.13.11",
+  "package_count": 0
+}

@@ -1,0 +1,25 @@
+# Auto Generated API
+
+- `EyeWitnessConfig`
+- `EyeWitnessDjangoMiddleware`
+- `add_breadcrumb`
+- `bind_context`
+- `capture_exception`
+- `capture_message`
+- `clear_context`
+- `get_logger`
+- `get_meter`
+- `get_structured_logger`
+- `get_tracer`
+- `init`
+- `init_observability`
+- `install_celery`
+- `install_fastapi`
+- `install_flask`
+- `metric_counter`
+- `metric_histogram`
+- `set_context`
+- `set_tag`
+- `set_user`
+- `shutdown`
+- `trace_span`

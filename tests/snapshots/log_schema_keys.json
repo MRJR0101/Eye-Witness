@@ -1,0 +1,10 @@
+{
+  "required_keys": [
+    "env",
+    "event",
+    "level",
+    "service",
+    "timestamp",
+    "version"
+  ]
+}

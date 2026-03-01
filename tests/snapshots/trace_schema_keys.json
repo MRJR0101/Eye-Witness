@@ -1,0 +1,15 @@
+{
+  "required_keys": [
+    "attributes",
+    "context",
+    "end_time",
+    "events",
+    "kind",
+    "links",
+    "name",
+    "parent_id",
+    "resource",
+    "start_time",
+    "status"
+  ]
+}
