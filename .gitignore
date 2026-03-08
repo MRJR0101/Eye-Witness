@@ -30,3 +30,8 @@ structlog_config.py
 
 # Internal ops/quality workflow files
 MISSINGMORE
+MISSINGMORE.txt
+MISSINGMORE_FILE_LEDGER.tsv
+
+# Accidental container artifacts
+mnt/
