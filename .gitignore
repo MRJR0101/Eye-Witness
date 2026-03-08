@@ -23,3 +23,15 @@ docs/_incoming_root/
 ObservableStructure.md
 setup-observability.ps1
 structlog_config.py
+
+# Local QA/build artifacts (managed)
+.pytest_tmp/
+.pytest_tmp_qwf/
+
+# Internal ops/quality workflow files
+MISSINGMORE
+MISSINGMORE.txt
+MISSINGMORE_FILE_LEDGER.tsv
+
+# Accidental container artifacts
+mnt/
