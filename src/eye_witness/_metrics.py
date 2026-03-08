@@ -7,7 +7,7 @@ creating counters and histograms.
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 from opentelemetry import metrics
 from opentelemetry.sdk.metrics import MeterProvider
@@ -37,7 +37,7 @@ def configure_metrics(cfg: EyeWitnessConfig) -> MeterProvider | None:
     return provider
 
 
-def _build_metric_readers(cfg: EyeWitnessConfig):
+def _build_metric_readers(cfg: EyeWitnessConfig) -> list[Any]:
     exporter_kind = cfg.metrics_exporter.lower()
     if exporter_kind == "none":
         return []
@@ -70,16 +70,16 @@ def _build_metric_readers(cfg: EyeWitnessConfig):
     return [reader]
 
 
-def get_meter(name: str | None = None):
+def get_meter(name: str | None = None) -> Any:
     """Get a meter from the global meter provider."""
     return metrics.get_meter(name or __name__)
 
 
-def metric_counter(name: str, *, description: str = "", unit: str = "1"):
+def metric_counter(name: str, *, description: str = "", unit: str = "1") -> Any:
     """Create and return a counter instrument."""
     return get_meter(__name__).create_counter(name, description=description, unit=unit)
 
 
-def metric_histogram(name: str, *, description: str = "", unit: str = "1"):
+def metric_histogram(name: str, *, description: str = "", unit: str = "1") -> Any:
     """Create and return a histogram instrument."""
     return get_meter(__name__).create_histogram(name, description=description, unit=unit)

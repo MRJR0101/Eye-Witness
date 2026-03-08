@@ -69,7 +69,7 @@ def configure_tracing(cfg: EyeWitnessConfig) -> TracerProvider | None:
     return provider
 
 
-def _build_sampler(rate: float, *, span_name_rates: dict[str, float] | None = None):
+def _build_sampler(rate: float, *, span_name_rates: dict[str, float] | None = None) -> Sampler:
     """Pick a sampler based on the configured rate."""
     if span_name_rates:
         return SpanNameRateSampler(rate, span_name_rates)
@@ -93,13 +93,13 @@ class SpanNameRateSampler(Sampler):
 
     def should_sample(
         self,
-        parent_context,
-        trace_id,
-        name,
-        kind=None,
-        attributes=None,
-        links=None,
-        trace_state=None,
+        parent_context: Any,
+        trace_id: Any,
+        name: Any,
+        kind: Any = None,
+        attributes: Any = None,
+        links: Any = None,
+        trace_state: Any = None,
     ) -> SamplingResult:
         for prefix, sampler in self._prefix_samplers:
             if name.startswith(prefix):
@@ -129,7 +129,7 @@ class SpanNameRateSampler(Sampler):
         )
 
 
-def _build_exporter(cfg: EyeWitnessConfig):
+def _build_exporter(cfg: EyeWitnessConfig) -> Any:
     """Instantiate the right span exporter based on config."""
     kind = cfg.otel_exporter.lower()
 
@@ -165,7 +165,7 @@ def _build_exporter(cfg: EyeWitnessConfig):
     raise ValueError(f"Unknown otel_exporter: {cfg.otel_exporter!r}")
 
 
-def _build_processor(cfg: EyeWitnessConfig, exporter):
+def _build_processor(cfg: EyeWitnessConfig, exporter: Any) -> Any:
     """Pick BatchSpanProcessor (prod) or SimpleSpanProcessor (dev)."""
     if exporter is None:
         # No exporter configured: keep tracing context active, but export nothing.

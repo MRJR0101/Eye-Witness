@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import logging
 import sys
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Callable
 
 import structlog
 
@@ -46,7 +46,7 @@ def _add_otel_trace_context(logger, method_name, event_dict):
     return event_dict
 
 
-def _add_service_info(service_name: str, service_version: str, environment: str):
+def _add_service_info(service_name: str, service_version: str, environment: str) -> Callable[..., Any]:
     """Return a structlog processor that stamps service metadata on every event."""
 
     def processor(logger, method_name, event_dict):
@@ -58,7 +58,7 @@ def _add_service_info(service_name: str, service_version: str, environment: str)
     return processor
 
 
-def _redact_sensitive_fields(redact_keys: tuple[str, ...], replacement: str):
+def _redact_sensitive_fields(redact_keys: tuple[str, ...], replacement: str) -> Callable[..., Any]:
     """Return a processor that redacts sensitive fields in log payloads."""
     redact_set = {key.lower() for key in redact_keys}
 
@@ -144,7 +144,7 @@ def _should_use_json(log_format: str) -> bool:
     return not sys.stderr.isatty()
 
 
-def _build_json_renderer(cfg: EyeWitnessConfig):
+def _build_json_renderer(cfg: EyeWitnessConfig) -> Any:
     """Return a JSONRenderer, optionally using orjson for speed."""
     if cfg.log_use_orjson:
         try:
@@ -156,7 +156,7 @@ def _build_json_renderer(cfg: EyeWitnessConfig):
     return structlog.processors.JSONRenderer()
 
 
-def _build_logger_factory(cfg: EyeWitnessConfig, use_json: bool):
+def _build_logger_factory(cfg: EyeWitnessConfig, use_json: bool) -> Any:
     """Pick a logger factory matching the serializer output type."""
     if use_json and cfg.log_use_orjson:
         try:
@@ -207,7 +207,7 @@ def _configure_stdlib_bridge(cfg: EyeWitnessConfig, log_level: int, use_json: bo
     root.addHandler(handler)
 
 
-def get_logger(name: str | None = None, **initial_context) -> structlog.BoundLogger:
+def get_logger(name: str | None = None, **initial_context: Any) -> structlog.BoundLogger:
     """
     Get a structlog logger, optionally with initial bound context.
 

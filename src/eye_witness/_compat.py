@@ -11,7 +11,7 @@ from eye_witness._init import init
 from eye_witness._logging import get_logger
 
 
-def init_observability(**kwargs: Any):
+def init_observability(**kwargs: Any) -> None:
     warnings.warn(
         "`init_observability()` is deprecated; use `init()`.",
         DeprecationWarning,
@@ -20,7 +20,7 @@ def init_observability(**kwargs: Any):
     return init(**kwargs)
 
 
-def get_structured_logger(name: str | None = None, **initial_context: Any):
+def get_structured_logger(name: str | None = None, **initial_context: Any) -> Any:
     warnings.warn(
         "`get_structured_logger()` is deprecated; use `get_logger()`.",
         DeprecationWarning,

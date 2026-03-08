@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import uuid
 from collections.abc import Callable
+from typing import Any
 
 from eye_witness._context import bind_context, clear_context
 
 
 def install_flask(
-    app,
+    app: Any,
     *,
     request_id_header: str = "X-Request-ID",
     user_id_getter: Callable | None = None,

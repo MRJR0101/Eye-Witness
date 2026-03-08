@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 import os
 from dataclasses import dataclass, field
-from typing import Literal
+from typing import Any, Literal
 
 
 @dataclass(frozen=True)
@@ -104,7 +104,7 @@ class EyeWitnessConfig:
                 )
 
     @classmethod
-    def from_env(cls, **overrides) -> EyeWitnessConfig:
+    def from_env(cls, **overrides: Any) -> EyeWitnessConfig:
         """
         Build config from environment variables, with keyword overrides
         taking precedence.
@@ -131,7 +131,7 @@ class EyeWitnessConfig:
         return cls(**env_map)
 
 
-def _coerce(raw: str, type_hint) -> object:
+def _coerce(raw: str, type_hint: Any) -> object:
     """Best-effort coercion of env-var strings to Python types."""
     hint = str(type_hint).lower()
     if hint == "bool":

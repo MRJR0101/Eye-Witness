@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 from eye_witness._context import bind_context, clear_context
 
 
-def install_celery(signals_module=None) -> None:
+def install_celery(signals_module: Any = None) -> None:
     """
     Install task lifecycle hooks for Celery.
 
