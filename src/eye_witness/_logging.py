@@ -90,7 +90,7 @@ def configure_logging(cfg: EyeWitnessConfig) -> None:
     log_level = getattr(logging, cfg.log_level.upper(), logging.INFO)
 
     # ── Shared processors (independent of output format) ────────────
-    shared_processors: list = [
+    shared_processors: list[Any] = [
         structlog.contextvars.merge_contextvars,
         _add_otel_trace_context,
         _add_service_info(cfg.service_name, cfg.service_version, cfg.environment),
@@ -174,7 +174,7 @@ def _configure_stdlib_bridge(cfg: EyeWitnessConfig, log_level: int, use_json: bo
     Set up a ProcessorFormatter so that logs from third-party libraries
     (uvicorn, requests, sqlalchemy, etc.) flow through structlog too.
     """
-    foreign_pre_chain = [
+    foreign_pre_chain: list[Any] = [
         structlog.contextvars.merge_contextvars,
         _add_otel_trace_context,
         _add_service_info(cfg.service_name, cfg.service_version, cfg.environment),

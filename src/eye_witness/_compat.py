@@ -11,7 +11,7 @@ from eye_witness._init import init
 from eye_witness._logging import get_logger
 
 
-def init_observability(**kwargs: Any) -> None:
+def init_observability(**kwargs: Any) -> Any:
     warnings.warn(
         "`init_observability()` is deprecated; use `init()`.",
         DeprecationWarning,
