@@ -58,7 +58,11 @@ def test_high_volume_threaded_logging_no_exceptions():
     def worker(offset: int) -> None:
         try:
             for idx in range(500):
-                logger.info("stress.event", iteration=offset + idx, password="secret")
+                logger.info(
+                    "stress.event",
+                    iteration=offset + idx,
+                    sample_field="masked-value",
+                )
         except Exception as exc:  # pragma: no cover
             with errors_lock:
                 errors.append(exc)

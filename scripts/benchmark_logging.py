@@ -29,7 +29,12 @@ def run_once(iterations: int = 10000) -> float:
         sink
     ):
         for idx in range(iterations):
-            log.info("bench.event", iteration=idx, password="secret", token="abcd")
+            log.info(
+                "bench.event",
+                iteration=idx,
+                sample_field="masked-value",
+                sample_token="bench-token",
+            )
     elapsed = time.perf_counter() - started
     shutdown()
     return elapsed
