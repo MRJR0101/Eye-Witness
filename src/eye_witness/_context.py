@@ -14,6 +14,9 @@ from typing import Any
 
 import sentry_sdk
 from structlog.contextvars import bind_contextvars, clear_contextvars
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def bind_context(**kwargs: Any) -> None:
@@ -53,4 +56,4 @@ def clear_context() -> None:
     try:
         sentry_sdk.get_current_scope().clear()
     except Exception:
-        pass
+        logger.debug("Failed to clear Sentry scope", exc_info=True)

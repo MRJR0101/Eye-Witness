@@ -36,3 +36,11 @@ MISSINGMORE_FILE_LEDGER.tsv
 
 # Accidental container artifacts
 mnt/
+
+# Local working artifacts
+_STRUCTURE.txt
+.debug_loop_reports/
+deploy-to-eye-witness.ps1
+baseline-reports/
+baseline-workspace/
+

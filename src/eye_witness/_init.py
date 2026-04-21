@@ -6,8 +6,11 @@ structlog, Sentry, and OpenTelemetry in one call.
 from __future__ import annotations
 
 import atexit
+import logging
 import threading
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 from opentelemetry import metrics, trace
 
@@ -147,14 +150,14 @@ def shutdown() -> None:
             try:
                 provider.shutdown()
             except Exception:
-                pass
+                logger.debug("TracerProvider shutdown failed", exc_info=True)
 
         meter_provider = metrics.get_meter_provider()
         if hasattr(meter_provider, "shutdown"):
             try:
                 meter_provider.shutdown()
             except Exception:
-                pass
+                logger.debug("MeterProvider shutdown failed", exc_info=True)
 
         _initialized = False
         _config = None
@@ -162,5 +165,5 @@ def shutdown() -> None:
             try:
                 atexit.unregister(shutdown)
             except Exception:
-                pass
+                logger.debug("atexit.unregister failed", exc_info=True)
             _atexit_registered = False
