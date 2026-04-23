@@ -10,11 +10,11 @@ Call bind_context() once and the data appears in your logs AND your Sentry event
 
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 import sentry_sdk
 from structlog.contextvars import bind_contextvars, clear_contextvars
-import logging
 
 logger = logging.getLogger(__name__)
 

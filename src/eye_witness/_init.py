@@ -10,8 +10,6 @@ import logging
 import threading
 from typing import Any
 
-logger = logging.getLogger(__name__)
-
 from opentelemetry import metrics, trace
 
 from eye_witness._config import EyeWitnessConfig
@@ -19,6 +17,8 @@ from eye_witness._logging import configure_logging
 from eye_witness._metrics import configure_metrics
 from eye_witness._sentry import configure_sentry
 from eye_witness._tracing import configure_tracing
+
+logger = logging.getLogger(__name__)
 
 # Module-level state
 _initialized: bool = False
