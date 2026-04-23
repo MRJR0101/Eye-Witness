@@ -1,7 +1,7 @@
 # Reproducible dependency lock for CI/docker matrix harness.
 # Refresh with: python scripts/refresh_lockfile.py
 build==1.4.0
-certifi==2026.1.4
+certifi==2026.4.22
 charset-normalizer==3.4.4
 coverage==7.13.4
 googleapis-common-protos==1.72.0
