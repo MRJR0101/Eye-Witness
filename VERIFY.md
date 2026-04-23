@@ -2,43 +2,56 @@
 
 ## Purpose
 
-Validate that Eye-Witness can be invoked from the project root and that basic command/help and test flows execute predictably.
+Validate that the `eye_witness` package imports, its public API is callable,
+and the full test suite passes.
 
 ## Prerequisites
 
-- Python runtime required by this project
-- Dependencies installed from equirements.txt and/or pyproject.toml
+- Python 3.10 or newer
+- `uv` installed (standard across this project)
 
 ## Verification Steps
 
-### Step 1: Help Output
+### Step 1: Install
 
-`ash
-python main.py --help
-`
+```powershell
+uv sync --extra dev
+```
 
-If main.py is not the entrypoint, use the project's documented CLI/module command.
+### Step 2: Import smoke check
 
-### Step 2: Basic Execution
+```powershell
+uv run python -c "from eye_witness import init, shutdown, EyeWitnessConfig; print('ok')"
+```
 
-Run the primary command path for this project and confirm it completes without unhandled exceptions.
+Expected output: `ok`
 
-### Step 3: Tests
+### Step 3: Lint and type check
 
-`ash
-python -m pytest -q
-`
+```powershell
+uv run ruff check src tests examples scripts
+uv run mypy src
+```
+
+### Step 4: Tests
+
+```powershell
+uv run pytest -q
+```
 
 ## Expected Output
 
-`	ext
-Command help displays available options.
-Primary command executes.
-Tests complete with pass/fail summary.
-`
+- Import smoke prints `ok`
+- Ruff and mypy report no errors
+- Pytest reports all tests passing
+
+## Notes
+
+- Entrypoint is the importable `eye_witness` package, not a `main.py` script.
+- Example usage scripts live in `examples/` and are referenced in `README.md`.
 
 ## Status
 
-- Last Verified: 2026-02-20
-- Verified By: Codex Automated Audit
+- Last Verified: 2026-04-22
+- Verified By: Manual audit (MR)
 - Result: PENDING MANUAL CONFIRMATION
