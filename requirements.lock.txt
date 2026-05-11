@@ -37,6 +37,6 @@ ruff==0.15.11
 sentry-sdk==2.52.0
 structlog==25.5.0
 typing_extensions==4.15.0
-urllib3==2.6.3
+urllib3==2.7.0
 wrapt==2.1.2
 zipp==3.23.0
